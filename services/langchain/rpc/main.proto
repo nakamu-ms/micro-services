@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package langchani;
+
+option go_package = "./pb";
+
+service Langchain{
+	rpc Models (ModelsRequest) returns (ModelsResponse); // LLMの選択
+	rpc Prompt (PromptRequest) returns (PromptResponse); // プロンプトの管理と最適化
+	rpc Indexes (IndexesRequest) returns (IndexesResponse); // 外部データの利用
+	rpc Chains (ChainsRequest) returns (ChainsResponse); // 複数プロンプトで一連の処理の実行
+	rpc Agents (AgentsRequest) returns (AgentsResponse); // ツールの実行
+	rpc Memory (MemoryRequest) returns (MemoryResponse); // 対話履歴の保持
+}
+
+message ModelsRequest {}
+message ModelsResponse {}
+message PromptRequest {}
+message PromptResponse {}
+message IndexesRequest {}
+message IndexesResponse {}
+message ChainsRequest {}
+message ChainsResponse {}
+message AgentsRequest {}
+message AgentsResponse {}
+message MemoryRequest {}
+message MemoryResponse {}
