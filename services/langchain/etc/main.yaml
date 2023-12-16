@@ -1,0 +1,8 @@
+Name: langchain.rpc
+ListenOn: 0.0.0.0:8080
+Timeout: 10000
+Etcd:
+  Hosts:
+  - etcd1:2379
+  - etcd2:2379
+  Key: langchain.rpc

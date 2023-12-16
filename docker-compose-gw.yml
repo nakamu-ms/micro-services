@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  langchain:
+    build:
+      context: ./images
+      dockerfile: Dockerfile
+    container_name: langchain
+    working_dir: /app/services/langchain
+    volumes:
+      - ${VOLUME_DIR}/go-build:/root/.cache/go-build
+      - type: bind
+        source: '.'
+        target: '/app'
+      - type: bind
+        source: '~/go/pkg'
+        target: '/go/pkg'
+    command: >-
+      air -c .air.toml
+    environment:
+      - GOLANG_PROTOBUF_REGISTRATION_CONFLICT=ignore
